@@ -6,15 +6,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('nav ul');
+    const nav = document.querySelector('nav');
     
-    if (mobileMenuBtn && navMenu) {
+    if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            
-            // Toggle hamburger to X
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
+            nav.classList.toggle('mobile-menu-open');
+            document.body.classList.toggle('menu-open');
         });
     }
     
