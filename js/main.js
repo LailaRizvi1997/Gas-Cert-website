@@ -1,29 +1,40 @@
 /**
  * Khawer Rizvi Gas Services - Main JavaScript
  * Created: April 2025
+ * Updated: April 2025 - Enhanced mobile responsiveness
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle - completely rewritten for reliability
+    // Mobile menu toggle - improved for better mobile experience
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav');
+    const navUl = document.querySelector('nav ul');
     const body = document.body;
     
     if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             mobileMenuBtn.classList.toggle('active');
             nav.classList.toggle('mobile-menu-open');
             body.classList.toggle('menu-open');
+            
+            // Toggle the show class on the navigation list
+            if (navUl) {
+                navUl.classList.toggle('show');
+            }
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!mobileMenuBtn.contains(e.target) && 
+            if (mobileMenuBtn && nav && navUl && 
+                !mobileMenuBtn.contains(e.target) && 
                 !nav.contains(e.target) && 
-                nav.classList.contains('mobile-menu-open')) {
+                (nav.classList.contains('mobile-menu-open') || navUl.classList.contains('show'))) {
                 nav.classList.remove('mobile-menu-open');
                 mobileMenuBtn.classList.remove('active');
                 body.classList.remove('menu-open');
+                navUl.classList.remove('show');
             }
         });
         
@@ -34,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.remove('mobile-menu-open');
                 mobileMenuBtn.classList.remove('active');
                 body.classList.remove('menu-open');
+                if (navUl) {
+                    navUl.classList.remove('show');
+                }
             });
         });
     }

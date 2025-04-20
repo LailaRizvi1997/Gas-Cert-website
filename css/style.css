@@ -427,6 +427,238 @@ body.menu-open {
     }
 }
 
+/* Mobile Improvements - April 2025 */
+
+/* Make buttons easier to tap */
+.btn, button, .nav-link, .btn-primary, .btn-outline {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Improved Media Queries */
+@media screen and (max-width: 992px) {
+    /* Adjust grid layouts */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .credentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* Make fonts more readable */
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Add more space between elements */
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Improve header and navigation */
+    header {
+        padding: 15px 0;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    /* Adjust grid and flex layouts */
+    .services-grid,
+    .credentials-grid,
+    .contact-grid,
+    .blog-grid,
+    .area-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Adjust spacing */
+    .services-preview,
+    .testimonials,
+    .cta-banner,
+    .about-section,
+    .services-section,
+    .page-header,
+    .contact-info {
+        padding: 40px 0;
+    }
+    
+    /* Handle flex containers */
+    .columns,
+    .row,
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    /* Adjust font sizes */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Improve service cards */
+    .service-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+    }
+    
+    /* Better buttons spacing */
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Override fixed heights */
+    .fixed-height {
+        height: auto !important;
+        min-height: initial !important;
+    }
+    
+    /* Adjust images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Small mobile adjustments */
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    /* Tighter spacing */
+    section {
+        padding: 30px 0;
+    }
+    
+    /* More readable font sizes */
+    body {
+        font-size: 16px; /* Base font size */
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Adjust hero section */
+    .hero {
+        padding: 30px 0;
+        text-align: center;
+    }
+    
+    .hero-content {
+        width: 100%;
+    }
+    
+    /* Better tap targets for mobile */
+    .btn, 
+    button,
+    input[type="submit"] {
+        padding: 14px 20px;
+        font-size: 1rem;
+        width: 100%;
+        margin: 8px 0;
+    }
+    
+    /* Improve form elements */
+    input, 
+    textarea, 
+    select {
+        padding: 12px;
+        font-size: 16px; /* Prevent zoom on iOS */
+        width: 100%;
+    }
+    
+    /* Adjust card spacing */
+    .service-card,
+    .credential-card,
+    .contact-card,
+    .testimonial-content {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    /* Stack navigation items */
+    .footer-navigation ul {
+        flex-direction: column;
+    }
+    
+    .footer-navigation li {
+        margin: 8px 0;
+    }
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
     background-color: var(--secondary-color);
@@ -1156,147 +1388,6 @@ footer {
     gap: 15px;
     margin-top: 30px;
     flex-wrap: wrap;
-}
-
-/* ===== RESPONSIVE STYLES ===== */
-@media (max-width: 992px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .feature-cards {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 15px 0;
-    }
-    
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 100;
-    }
-    
-    nav ul li {
-        margin: 10px 0;
-    }
-    
-    .mobile-menu-btn {
-        display: flex;
-    }
-    
-    .hero {
-        padding: 60px 0;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-callout {
-        font-size: 1rem;
-    }
-    
-    .feature-cards, 
-    .service-cards, 
-    .testimonial-grid, 
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .about-grid {
-        gap: 30px;
-    }
-}
-
-@media (max-width: 576px) {
-    .container {
-        width: 95%;
-        padding: 0 10px;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .hero {
-        padding: 40px 0;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .hero-callout {
-        font-size: 0.9rem;
-        padding: 6px 15px;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-    }
-    
-    .cta-buttons .btn {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    .features, 
-    .services, 
-    .about-section, 
-    .testimonials, 
-    .blog, 
-    .contact {
-        padding: 50px 0;
-    }
-    
-    .feature-card,
-    .service-card {
-        padding: 20px;
-    }
 }
 
 /* Global Styles */
