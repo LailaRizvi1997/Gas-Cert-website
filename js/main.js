@@ -4,14 +4,37 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    // Mobile menu toggle - completely rewritten for reliability
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav');
+    const body = document.body;
     
     if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.classList.toggle('active');
             nav.classList.toggle('mobile-menu-open');
-            document.body.classList.toggle('menu-open');
+            body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && 
+                !nav.contains(e.target) && 
+                nav.classList.contains('mobile-menu-open')) {
+                nav.classList.remove('mobile-menu-open');
+                mobileMenuBtn.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+        
+        // Close menu when clicking a nav link
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('mobile-menu-open');
+                mobileMenuBtn.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
         });
     }
     
